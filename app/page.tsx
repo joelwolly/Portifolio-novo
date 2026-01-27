@@ -128,16 +128,23 @@ export default function Home() {
   useEffect(() => {
     AOS.init({ once: false, mirror: true, duration: 800, easing: "ease-in-out" });
 
-    fetch("https://api.counterapi.dev/v1/joel-wollace-portfolio/views/up")
-      .then((res) => res.json())
-      .then((data) => setViews(data.count))
-      .catch((err) => console.error("Erro ao carregar contador:", err));
-  }, []);
+    const fetchViews = async () => {
+      try {
+        const res = await fetch("https://api.counterapi.dev/v1/joel-wollace-portfolio/views/up");
+        if (!res.ok) throw new Error("API não respondeu corretamente");
+        const data = await res.json();
+        setViews(data.count);
+      } catch (err) {
+        console.error("Erro ao carregar contador:", err);
+        setViews(0);
+      }
+    };
 
+    fetchViews();
+  }, []);
 
   return (
     <div className={styles.container}>
-
       <header className={styles.header}>
         <div className={styles.navContainer}>
           <h1 className={styles.logo}></h1>
@@ -148,7 +155,6 @@ export default function Home() {
               <a href="#projetos">{t.menu.projects}</a>
               <a href="#contato">{t.menu.contact}</a>
             </nav>
-
             <button onClick={toggleLanguage} className={styles.langButton}>
               {language === "pt" ? "🇺🇸 EN" : "🇧🇷 PT"}
             </button>
@@ -159,14 +165,7 @@ export default function Home() {
       <main>
         <section className={styles.hero}>
           <div className={styles.heroGlow}></div>
-
-          <h2
-            className={styles.title}
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            {t.hero.title}
-          </h2>
+          <h2 className={styles.title} data-aos="fade-up" data-aos-delay="200">{t.hero.title}</h2>
         </section>
 
         <section id="sobre" className={styles.section} data-aos="fade-up">
@@ -188,11 +187,7 @@ export default function Home() {
                 {t.skills.title}
               </h4>
 
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-                gap: '2rem'
-              }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem' }}>
                 {t.skills.categories.map((category, index) => (
                   <div key={index}>
                     <h5 style={{
@@ -205,16 +200,13 @@ export default function Home() {
                     </h5>
                     <div className={styles.skillContainer}>
                       {category.items.map((tech) => (
-                        <span key={tech} className={styles.skillChip}>
-                          {tech}
-                        </span>
+                        <span key={tech} className={styles.skillChip}>{tech}</span>
                       ))}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
           </div>
         </section>
 
@@ -223,35 +215,26 @@ export default function Home() {
             <div className={styles.line}></div>
             <h3>{t.experience.title}</h3>
           </div>
-
           <div className={styles.projectsGrid}>
-
             <article className={styles.projectCard}>
               <div className={styles.cardHeader}>
                 <div className={styles.folderIcon}>
-                  {/* Ícone de Maleta */}
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <span className={styles.projectTechList}>{t.experience.basis.period}</span>
               </div>
-
               <h4 className={styles.projectTitle}>{t.experience.basis.role}</h4>
               <p style={{ fontSize: '0.9rem', marginBottom: '1rem', color: 'var(--primary)', fontWeight: 'bold' }}>
                 {t.experience.basis.company}
               </p>
-
-              <p className={styles.projectDescription}>
-                {t.experience.basis.desc}
-              </p>
+              <p className={styles.projectDescription}>{t.experience.basis.desc}</p>
             </article>
 
-            {/* Card de Formação */}
             <article className={styles.projectCard}>
               <div className={styles.cardHeader}>
                 <div className={styles.folderIcon}>
-                  {/* Ícone de Capelo */}
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M12 14l9-5-9-5-9 5 9 5z" />
                     <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
@@ -260,17 +243,12 @@ export default function Home() {
                 </div>
                 <span className={styles.projectTechList}>{t.education.period}</span>
               </div>
-
               <h4 className={styles.projectTitle}>{t.education.title}</h4>
               <p style={{ fontSize: '0.9rem', marginBottom: '1rem', color: 'var(--primary)', fontWeight: 'bold' }}>
                 {t.education.institution}
               </p>
-
-              <p className={styles.projectDescription}>
-                {t.education.course}
-              </p>
+              <p className={styles.projectDescription}>{t.education.course}</p>
             </article>
-
           </div>
         </section>
 
@@ -281,8 +259,6 @@ export default function Home() {
           </div>
 
           <div className={styles.projectsGrid}>
-
-            {/* CARD 1: METALYSE */}
             <article className={styles.projectCard}>
               <div className={styles.cardHeader}>
                 <div className={styles.folderIcon}>
@@ -298,13 +274,8 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-
               <h4 className={styles.projectTitle}>MetaLyse</h4>
-
-              <p className={styles.projectDescription}>
-                {t.metalyse.desc}
-              </p>
-
+              <p className={styles.projectDescription}>{t.metalyse.desc}</p>
               <div className={styles.projectTechList}>
                 <span>Angular</span>
                 <span>Python (Flask)</span>
@@ -312,7 +283,6 @@ export default function Home() {
                 <span>Security</span>
               </div>
             </article>
-
           </div>
         </section>
 
@@ -353,7 +323,7 @@ export default function Home() {
           <p className={styles.copy}>{t.footer.copy}</p>
           <div className={styles.viewCounter}>
             <span className={styles.viewLabel}>{t.footer.views}:</span>
-            <span className={styles.viewNumber}>{views}</span>
+            <span className={styles.viewNumber}>{views.toLocaleString()}</span>
           </div>
         </div>
       </footer>
