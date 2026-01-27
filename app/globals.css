@@ -1,0 +1,33 @@
+
+
+:root {
+  --background: #000000;
+  --primary: #dfe2eb;
+  --text-main: #f1f1f1;
+  --text-secondary: #dcdfe2;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text-main);
+  font-family: sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove overlay do Next em dev */
+[data-nextjs-dev-tools-button],
+[data-nextjs-dev-tools-menu],
+[data-nextjs-dev-overlay] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
