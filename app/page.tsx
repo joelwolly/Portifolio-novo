@@ -125,12 +125,14 @@ export default function Home() {
     "Docker", "Kubernetes", "SQL", "Git", "Scrum", "CI/CD"
   ];
 
+
+
   useEffect(() => {
     AOS.init({ once: false, mirror: true, duration: 800, easing: "ease-in-out" });
 
     const fetchViews = async () => {
       try {
-        const res = await fetch("https://api.counterapi.dev/v1/joel-wollace-portfolio/views/up");
+        const res = await fetch("https://api.counterapi.dev/v1/joel-wollace-oficial/sites-views/up");
         if (!res.ok) throw new Error("API não respondeu corretamente");
         const data = await res.json();
         setViews(data.count);
@@ -139,7 +141,6 @@ export default function Home() {
         setViews(0);
       }
     };
-
     fetchViews();
   }, []);
 
