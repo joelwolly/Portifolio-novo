@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📱 Joel Wollace — Portfólio
 
-## Getting Started
+Bem-vindo ao repositório do meu portfólio pessoal! 
+Este projeto foi desenvolvido para centralizar meus projetos, habilidades técnicas e facilitar o contato com recrutadores e outros desenvolvedores.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌐 Acesse o Projeto
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* 🚀 **Deploy:** [https://joel-wollace.vercel.app/](https://joel-wollace.vercel.app/)
+* 📂 **Repositório:** [https://github.com/joelwolly/portfolio](https://github.com/joelwolly/portfolio)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🖥️ Tecnologias Utilizadas
 
-## Learn More
+O portfólio foi construído com foco em performance e modernidade, utilizando:
 
-To learn more about Next.js, take a look at the following resources:
+* **Framework:** [React](https://reactjs.org/) / [Next.js](https://nextjs.org/) (App Router)
+* **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
+* **Estilização:** CSS Modules (Design Minimalista & Dark Mode)
+* **Animações:** [AOS](https://michalsnik.github.io/aos/) (Animate On Scroll)
+* **Métricas:** [Counter API](https://counterapi.dev/) (Contador de visualizações em tempo real)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✨ Funcionalidades
 
-## Deploy on Vercel
+* ✅ **Layout Moderno:** Interface limpa, responsiva e otimizada para dispositivos móveis.
+* ✅ **Internacionalização (i18n):** Alternância dinâmica entre **Português** e **Inglês**.
+* ✅ **Animações em Cascata:** Surgimento sequencial de elementos durante o scroll para uma experiência mais fluida.
+* ✅ **Social Integration:** Links diretos e estilizados para GitHub, LinkedIn e contato via WhatsApp/E-mail.
+* ✅ **Analytics Simples:** Monitoramento de acessos através de um contador de visualizações integrado.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
