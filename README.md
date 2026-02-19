@@ -1,4 +1,3 @@
-# 📱 Joel Wollace — Portfólio
 
 Bem-vindo ao repositório do meu portfólio pessoal! 
 Este projeto foi desenvolvido para centralizar meus projetos, habilidades técnicas e facilitar o contato com recrutadores e outros desenvolvedores.
